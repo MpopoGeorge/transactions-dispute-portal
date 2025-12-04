@@ -1,101 +1,54 @@
 # Transactions Dispute Portal
 
-A full-stack web application for customers to view their transaction history and file disputes. Built with ASP.NET Core 8 and Angular 18.
+Web application for viewing transaction history and filing disputes.
 
 ## Tech Stack
 
-**Backend:** ASP.NET Core 8, Entity Framework Core, PostgreSQL, JWT Authentication
+- **Backend:** ASP.NET Core 8, Entity Framework Core, PostgreSQL
+- **Frontend:** Angular 18, TypeScript, SCSS
+- **Deployment:** Docker, Nginx
 
-**Frontend:** Angular 18, TypeScript, RxJS, SCSS
+## Getting Started
 
-**Infrastructure:** Docker, Docker Compose, Nginx
-
-## Quick Start
-
-### Prerequisites
-- Docker and Docker Compose
-
-### Run with Docker
+Make sure you have Docker installed, then run:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/MpopoGeorge/transactions-dispute-portal.git
 cd transactions-dispute-portal
 docker-compose up --build
 ```
 
-**Access:**
-- Frontend: http://localhost
-- API: http://localhost:3000
-- Swagger: http://localhost:3000/swagger
+Open http://localhost in your browser.
 
-**Test Account (Mpopo Credentials):**
-```
-Email: gtmpopo@gmail.com
-Password: NoPassword123
-```
+**Login:**
+- Email: gtmpopo@gmail.com
+- Password: NoPassword123
 
-### Stop
-```bash
-docker-compose down
-```
+API docs available at http://localhost:3000/swagger
 
-## Local Development
+## Development
 
-### Backend
-
+**Backend:**
 ```bash
 cd backend/src/TransactionsDisputePortal.Api
-# Update connection string in appsettings.Development.json
 dotnet ef database update
 dotnet run
 ```
 
-### Frontend
-
+**Frontend:**
 ```bash
 cd frontend
 npm install
 ng serve
 ```
 
-## API Endpoints
+## API
 
-### Authentication
-- `POST /api/auth/register` - Register user
-- `POST /api/auth/login` - Login
-- `GET /api/auth/me` - Current user
-
-### Transactions
-- `GET /api/transactions` - List transactions
-- `GET /api/transactions/{id}` - Transaction details
-- `GET /api/transactions/summary` - Summary stats
-
-### Disputes
-- `GET /api/disputes` - List disputes
-- `GET /api/disputes/{id}` - Dispute details
-- `POST /api/disputes` - Create dispute
-- `PATCH /api/disputes/{id}` - Update dispute
-
-## Project Structure
-
-```
-├── backend/
-│   └── src/TransactionsDisputePortal.Api/
-│       ├── Controllers/
-│       ├── Data/
-│       ├── DTOs/
-│       ├── Models/
-│       ├── Services/
-│       └── Program.cs
-├── frontend/
-│   └── src/app/
-│       ├── core/           # Services, guards, interceptors
-│       ├── features/       # Auth, Dashboard, Transactions, Disputes
-│       └── shared/         # Shared components
-├── docker-compose.yml
-└── Dockerfile
-```
-
-## License
-
-MIT
+| Endpoint | Description |
+|----------|-------------|
+| POST /api/auth/login | Login |
+| POST /api/auth/register | Register |
+| GET /api/transactions | List transactions |
+| GET /api/transactions/:id | Transaction details |
+| GET /api/disputes | List disputes |
+| POST /api/disputes | Create dispute |
