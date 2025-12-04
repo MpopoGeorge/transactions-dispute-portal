@@ -28,10 +28,10 @@ docker-compose up --build
 - API: http://localhost:3000
 - Swagger: http://localhost:3000/swagger
 
-**Test Account:**
+**Test Account (Mpopo Credentials):**
 ```
 Email: gtmpopo@gmail.com
-Password: password123
+Password: NoPassword123
 ```
 
 ### Stop
